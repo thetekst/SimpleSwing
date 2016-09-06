@@ -24,8 +24,8 @@ public class Window {
         MyDrawPanel myDrawPanel = new MyDrawPanel();
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(BorderLayout.SOUTH, button);
-        frame.getContentPane().add(BorderLayout.CENTER, myDrawPanel);
+        frame.getContentPane().add(button, BorderLayout.SOUTH);
+        frame.getContentPane().add(myDrawPanel, BorderLayout.CENTER);
         frame.setSize(300, 300);
         frame.setVisible(true);
     }
