@@ -19,6 +19,8 @@ public class Window extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+                setLayout(new BorderLayout());
+
                 button = new JButton("click me");
 
                 button.addActionListener(new LabelListener());
@@ -33,7 +35,7 @@ public class Window extends JFrame {
                     }
                 });*/
 
-                MyDrawPanel myDrawPanel = new MyDrawPanel();
+                MyPanel myDrawPanel = new MyPanel();
 
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 getContentPane().add(button, BorderLayout.SOUTH);
