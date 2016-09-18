@@ -28,9 +28,16 @@ public class Window {
         frame.getContentPane().add(myDrawPanel, BorderLayout.CENTER);
         frame.setSize(300, 300);
         frame.setVisible(true);
+
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("run");
+            }
+        });
     }
 
-    class LabelListener implements ActionListener {
+    private class LabelListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             frame.repaint();
