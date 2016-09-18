@@ -5,32 +5,31 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Window {
-    private JFrame frame;
+public class Window extends JFrame {
     private JButton button;
-    private boolean flag = true;
+    private boolean flag;
 
-    public static void main(String[] args) {
-        Window window = new Window();
-        window.go();
+    public Window() {
+        super("My Window");
+        flag = true;
+        go();
     }
 
     private void go() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                frame = new JFrame();
                 button = new JButton("click me");
 
                 button.addActionListener(new LabelListener());
 
                 MyDrawPanel myDrawPanel = new MyDrawPanel();
 
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().add(button, BorderLayout.SOUTH);
-                frame.getContentPane().add(myDrawPanel, BorderLayout.CENTER);
-                frame.setSize(300, 300);
-                frame.setVisible(true);
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                getContentPane().add(button, BorderLayout.SOUTH);
+                getContentPane().add(myDrawPanel, BorderLayout.CENTER);
+                setSize(300, 300);
+                setVisible(true);
             }
         });
     }
@@ -38,7 +37,7 @@ public class Window {
     private class LabelListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            frame.repaint();
+            repaint();
 
             if (flag) {
                 button.setText("I'v been clicked");
