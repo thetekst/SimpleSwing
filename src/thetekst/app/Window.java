@@ -23,6 +23,16 @@ public class Window extends JFrame {
 
                 button.addActionListener(new LabelListener());
 
+                /*
+                This is alternative call:
+
+                button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent actionEvent) {
+                        changeVisualization();
+                    }
+                });*/
+
                 MyDrawPanel myDrawPanel = new MyDrawPanel();
 
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,15 +47,19 @@ public class Window extends JFrame {
     private class LabelListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            repaint();
+            changeVisualization();
+        }
+    }
 
-            if (flag) {
-                button.setText("I'v been clicked");
-                flag = false;
-            } else {
-                button.setText("click me");
-                flag = true;
-            }
+    private void changeVisualization() {
+        repaint();
+
+        if (flag) {
+            button.setText("I'v been clicked");
+            flag = false;
+        } else {
+            button.setText("click me");
+            flag = true;
         }
     }
 
