@@ -16,23 +16,21 @@ public class Window {
     }
 
     private void go() {
-        frame = new JFrame();
-        button = new JButton("click me");
-
-        button.addActionListener(new LabelListener());
-
-        MyDrawPanel myDrawPanel = new MyDrawPanel();
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(button, BorderLayout.SOUTH);
-        frame.getContentPane().add(myDrawPanel, BorderLayout.CENTER);
-        frame.setSize(300, 300);
-        frame.setVisible(true);
-
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                System.out.println("run");
+                frame = new JFrame();
+                button = new JButton("click me");
+
+                button.addActionListener(new LabelListener());
+
+                MyDrawPanel myDrawPanel = new MyDrawPanel();
+
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.getContentPane().add(button, BorderLayout.SOUTH);
+                frame.getContentPane().add(myDrawPanel, BorderLayout.CENTER);
+                frame.setSize(300, 300);
+                frame.setVisible(true);
             }
         });
     }
